@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vpromac
+  labels:
+    app: vpromac
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vpromac
+  template:
+    metadata:
+      labels:
+        app: vpromac
+    spec:
+      containers:
+        - name: vpromac
+          image: memcached
+          ports:
+            - name: vpromac-port
+              containerPort: 11211
